@@ -1,7 +1,5 @@
 package com.naorandd.tileslipgame;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.graphics.Color;
@@ -27,7 +25,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private Button set_bt;
 
-    int arr[][] = new int[3][3];
+    int arr[] = new int[9];
 
 
     @Override
@@ -145,7 +143,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 }
                 break;
             case R.id.tile_9:
-                if (_commonDefine.tile1_flg) {
+                if (_commonDefine.tile9_flg) {
                     tile_9.setBackgroundColor(Color.rgb(200, 0, 0));
                     _commonDefine.tile9_flg = false;
                 } else {
@@ -163,10 +161,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         Random r = new Random();
 //        int arr[][] = new int[3][3];
 
-        for(int i = 0; i < 3; i++) {
-            for (int j = 0; i < 3; j++) {
-                arr[i][j] = r.nextInt(2);
-            }
+        for(int i = 0; i < 9; i++) {
+                arr[i] = r.nextInt(2);
         }
 
         loadStatusArray();
@@ -186,10 +182,98 @@ public class MainActivity extends Activity implements View.OnClickListener {
 //    }
 
     private void loadStatusArray(){
-        for(int i = 0; i < 3; i++) {
-            for (int j = 0; i < 3; j++) {
-                arr[i][j];
+        for(int i = 0; i < 9; i++) {
+            switch(i + 1) {
+                case 1:
+                    if (convertBool(arr[i])) {
+                        tile_1.setBackgroundColor(Color.rgb(200, 0, 0));
+                        _commonDefine.tile1_flg = false;
+                    } else {
+                        tile_1.setBackgroundColor(Color.rgb(0, 0, 200));
+                        _commonDefine.tile1_flg = true;
+                    }
+                    break;
+                case 2:
+                    if (convertBool(arr[i])) {
+                        tile_2.setBackgroundColor(Color.rgb(200, 0, 0));
+                        _commonDefine.tile2_flg = false;
+                    } else {
+                        tile_2.setBackgroundColor(Color.rgb(0, 0, 200));
+                        _commonDefine.tile2_flg = true;
+                    }
+                    break;
+                case 3:
+                    if (convertBool(arr[i])) {
+                        tile_3.setBackgroundColor(Color.rgb(200, 0, 0));
+                        _commonDefine.tile3_flg = false;
+                    } else {
+                        tile_3.setBackgroundColor(Color.rgb(0, 0, 200));
+                        _commonDefine.tile3_flg = true;
+                    }
+                    break;
+                case 4:
+                    if (convertBool(arr[i])) {
+                        tile_4.setBackgroundColor(Color.rgb(200, 0, 0));
+                        _commonDefine.tile4_flg = false;
+                    } else {
+                        tile_4.setBackgroundColor(Color.rgb(0, 0, 200));
+                        _commonDefine.tile4_flg = true;
+                    }
+                    break;
+                case 5:
+                    if (convertBool(arr[i])) {
+                        tile_5.setBackgroundColor(Color.rgb(200, 0, 0));
+                        _commonDefine.tile5_flg = false;
+                    } else {
+                        tile_5.setBackgroundColor(Color.rgb(0, 0, 200));
+                        _commonDefine.tile5_flg = true;
+                    }
+                    break;
+                case 6:
+                    if (convertBool(arr[i])) {
+                        tile_6.setBackgroundColor(Color.rgb(200, 0, 0));
+                        _commonDefine.tile6_flg = false;
+                    } else {
+                        tile_6.setBackgroundColor(Color.rgb(0, 0, 200));
+                        _commonDefine.tile6_flg = true;
+                    }
+                    break;
+                case 7:
+                    if (convertBool(arr[i])) {
+                        tile_7.setBackgroundColor(Color.rgb(200, 0, 0));
+                        _commonDefine.tile7_flg = false;
+                    } else {
+                        tile_7.setBackgroundColor(Color.rgb(0, 0, 200));
+                        _commonDefine.tile7_flg = true;
+                    }
+                    break;
+                case 8:
+                    if (convertBool(arr[i])) {
+                        tile_8.setBackgroundColor(Color.rgb(200, 0, 0));
+                        _commonDefine.tile8_flg = false;
+                    } else {
+                        tile_8.setBackgroundColor(Color.rgb(0, 0, 200));
+                        _commonDefine.tile8_flg = true;
+                    }
+                    break;
+                case 9:
+                    if (convertBool(arr[i])) {
+                        tile_9.setBackgroundColor(Color.rgb(200, 0, 0));
+                        _commonDefine.tile9_flg = false;
+                    } else {
+                        tile_9.setBackgroundColor(Color.rgb(0, 0, 200));
+                        _commonDefine.tile9_flg = true;
+                    }
+                    break;
             }
+        }
+    }
+
+    private boolean convertBool(int binary){
+        if(binary == 0){
+            return true;
+        }else {
+            return false;
         }
     }
 }
