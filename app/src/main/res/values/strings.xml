@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TileSlipGame</string>
+
+    <string name="tile_name">Tap!</string>
 </resources>
