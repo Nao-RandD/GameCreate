@@ -13,6 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TileSlipGame"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FF5722"
         android:textColorHighlight="#2196F3"
         android:textColorHint="#3F51B5"
@@ -30,9 +31,9 @@
         android:checkable="true"
         android:text="START"
         android:textSize="50dp"
-        app:backgroundTint="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/button_background"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
