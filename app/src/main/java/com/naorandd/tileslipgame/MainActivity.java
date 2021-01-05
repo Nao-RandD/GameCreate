@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -96,81 +97,99 @@ public class MainActivity extends Activity implements View.OnClickListener {
         switch(v.getId()){
             case R.id.tile_1:
                 if (_commonDefine.tileflg[0]) {
+                    tile_1.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
                     tile_1.setBackgroundColor(Color.rgb(200, 0, 0));
                     _commonDefine.tileflg[0] = false;
                 } else {
+                    tile_1.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
                     tile_1.setBackgroundColor(Color.rgb(0, 0, 255));
                     _commonDefine.tileflg[0] = true;
                 }
                 break;
             case R.id.tile_2:
                 if (_commonDefine.tileflg[1]) {
+                    tile_2.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
                     tile_2.setBackgroundColor(Color.rgb(200, 0, 0));
                     _commonDefine.tileflg[1] = false;
                 } else {
+                    tile_2.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
                     tile_2.setBackgroundColor(Color.rgb(0, 0, 255));
                     _commonDefine.tileflg[1] = true;
                 }
                 break;
             case R.id.tile_3:
                 if (_commonDefine.tileflg[2]) {
+                    tile_3.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
                     tile_3.setBackgroundColor(Color.rgb(200, 0, 0));
                     _commonDefine.tileflg[2] = false;
                 } else {
+                    tile_3.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
                     tile_3.setBackgroundColor(Color.rgb(0, 0, 255));
                     _commonDefine.tileflg[2] = true;
                 }
                 break;
             case R.id.tile_4:
                 if (_commonDefine.tileflg[3]) {
+                    tile_4.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
                     tile_4.setBackgroundColor(Color.rgb(200, 0, 0));
                     _commonDefine.tileflg[3] = false;
                 } else {
+                    tile_4.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
                     tile_4.setBackgroundColor(Color.rgb(0, 0, 255));
                     _commonDefine.tileflg[3] = true;
                 }
                 break;
             case R.id.tile_5:
                 if (_commonDefine.tileflg[4]) {
+                    tile_5.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
                     tile_5.setBackgroundColor(Color.rgb(200, 0, 0));
                     _commonDefine.tileflg[4] = false;
                 } else {
+                    tile_5.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
                     tile_5.setBackgroundColor(Color.rgb(0, 0, 255));
                     _commonDefine.tileflg[4] = true;
                 }
                 break;
             case R.id.tile_6:
                 if (_commonDefine.tileflg[5]) {
+                    tile_6.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
                     tile_6.setBackgroundColor(Color.rgb(200, 0, 0));
                     _commonDefine.tileflg[5] = false;
                 } else {
+                    tile_6.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
                     tile_6.setBackgroundColor(Color.rgb(0, 0, 255));
                     _commonDefine.tileflg[5] = true;
                 }
                 break;
             case R.id.tile_7:
                 if (_commonDefine.tileflg[6]) {
+                    tile_7.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
                     tile_7.setBackgroundColor(Color.rgb(200, 0, 0));
                     _commonDefine.tileflg[6] = false;
                 } else {
+                    tile_7.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
                     tile_7.setBackgroundColor(Color.rgb(0, 0, 255));
                     _commonDefine.tileflg[6] = true;
                 }
                 break;
             case R.id.tile_8:
                 if (_commonDefine.tileflg[7]) {
+                    tile_8.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
                     tile_8.setBackgroundColor(Color.rgb(200, 0, 0));
                     _commonDefine.tileflg[7] = false;
                 } else {
+                    tile_8.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
                     tile_8.setBackgroundColor(Color.rgb(0, 0, 255));
                     _commonDefine.tileflg[7] = true;
                 }
                 break;
             case R.id.tile_9:
                 if (_commonDefine.tileflg[8]) {
+                    tile_9.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
                     tile_9.setBackgroundColor(Color.rgb(200, 0, 0));
                     _commonDefine.tileflg[8] = false;
                 } else {
+                    tile_9.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
                     tile_9.setBackgroundColor(Color.rgb(0, 0, 255));
                     _commonDefine.tileflg[8] = true;
                 }
@@ -178,6 +197,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
             case R.id.set_button:
                 generateRandomArray();
+                set_bt.setText("Next Game");
         }
         if(compareAnswerArr()){
             clear_text.setVisibility(View.VISIBLE);
