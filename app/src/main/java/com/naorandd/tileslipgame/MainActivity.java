@@ -380,7 +380,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
      * @implNote Tile animation and change flg.
      */
     private void tileFlip(int num){
-        System.out.printf("変更タイルは%d%n", num);
         if (_commonDefine.tileFlg[num]) {
             bt_arr[num].startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
             bt_arr[num].setBackgroundColor(Color.rgb(200, 0, 0));
