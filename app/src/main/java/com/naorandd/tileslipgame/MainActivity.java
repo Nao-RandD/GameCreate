@@ -10,21 +10,15 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
+    // Member validation
     private CommonDefine _commonDefine;
-    // Find Button
-    private Button tile_1;
-    private Button tile_2;
-    private Button tile_3;
-    private Button tile_4;
-    private Button tile_5;
-    private Button tile_6;
-    private Button tile_7;
-    private Button tile_8;
-    private Button tile_9;
+
+    private Button[] bt_arr = new Button[9];
 
     private Button ans_tile_1;
     private Button ans_tile_2;
@@ -50,18 +44,18 @@ public class MainActivity extends Activity implements View.OnClickListener {
         _commonDefine = (CommonDefine) getApplication();
         _commonDefine.init();
 
-        // Find Button id
-        tile_1 = findViewById(R.id.tile_1);
-        tile_2 = findViewById(R.id.tile_2);
-        tile_3 = findViewById(R.id.tile_3);
-        tile_4 = findViewById(R.id.tile_4);
-        tile_5 = findViewById(R.id.tile_5);
-        tile_6 = findViewById(R.id.tile_6);
-        tile_7 = findViewById(R.id.tile_7);
-        tile_8 = findViewById(R.id.tile_8);
-        tile_9 = findViewById(R.id.tile_9);
+        // Find Tile id
+        bt_arr[0] = findViewById(R.id.tile_1);
+        bt_arr[1] = findViewById(R.id.tile_2);
+        bt_arr[2] = findViewById(R.id.tile_3);
+        bt_arr[3] = findViewById(R.id.tile_4);
+        bt_arr[4] = findViewById(R.id.tile_5);
+        bt_arr[5] = findViewById(R.id.tile_6);
+        bt_arr[6] = findViewById(R.id.tile_7);
+        bt_arr[7] = findViewById(R.id.tile_8);
+        bt_arr[8] = findViewById(R.id.tile_9);
 
-        // Find Button id
+        // Find Answer Tile id
         ans_tile_1 = findViewById(R.id.ans_tile_1);
         ans_tile_2 = findViewById(R.id.ans_tile_2);
         ans_tile_3 = findViewById(R.id.ans_tile_3);
@@ -72,126 +66,150 @@ public class MainActivity extends Activity implements View.OnClickListener {
         ans_tile_8 = findViewById(R.id.ans_tile_8);
         ans_tile_9 = findViewById(R.id.ans_tile_9);
 
+        // Find Set Game Button id
         set_bt = findViewById(R.id.set_button);
 
+        // FInd Clear Screen Text id
         clear_text = findViewById(R.id.clear_text);
 
-
         // Set Each Button Listener
-        tile_1.setOnClickListener(this);
-        tile_2.setOnClickListener(this);
-        tile_3.setOnClickListener(this);
-        tile_4.setOnClickListener(this);
-        tile_5.setOnClickListener(this);
-        tile_6.setOnClickListener(this);
-        tile_7.setOnClickListener(this);
-        tile_8.setOnClickListener(this);
-        tile_9.setOnClickListener(this);
+        bt_arr[0].setOnClickListener(this);
+        bt_arr[1].setOnClickListener(this);
+        bt_arr[2].setOnClickListener(this);
+        bt_arr[3].setOnClickListener(this);
+        bt_arr[4].setOnClickListener(this);
+        bt_arr[5].setOnClickListener(this);
+        bt_arr[6].setOnClickListener(this);
+        bt_arr[7].setOnClickListener(this);
+        bt_arr[8].setOnClickListener(this);
 
         set_bt.setOnClickListener(this);
     }
 
+    /**
+     * Button Action Function
+     * @param v
+     * @implNote Get button id for user click main board.
+     */
     @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.tile_1:
-                if (_commonDefine.tileflg[0]) {
-                    tile_1.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
-                    tile_1.setBackgroundColor(Color.rgb(200, 0, 0));
-                    _commonDefine.tileflg[0] = false;
+                if (_commonDefine.tileFlg[0]) {
+                    bt_arr[0].startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
+                    bt_arr[0].setBackgroundColor(Color.rgb(200, 0, 0));
+                    flipLogic(0);
+                    _commonDefine.tileFlg[0] = false;
                 } else {
-                    tile_1.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
-                    tile_1.setBackgroundColor(Color.rgb(0, 0, 255));
-                    _commonDefine.tileflg[0] = true;
+                    bt_arr[0].startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
+                    bt_arr[0].setBackgroundColor(Color.rgb(0, 0, 255));
+                    flipLogic(0);
+                    _commonDefine.tileFlg[0] = true;
                 }
                 break;
             case R.id.tile_2:
-                if (_commonDefine.tileflg[1]) {
-                    tile_2.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
-                    tile_2.setBackgroundColor(Color.rgb(200, 0, 0));
-                    _commonDefine.tileflg[1] = false;
+                if (_commonDefine.tileFlg[1]) {
+                    bt_arr[1].startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
+                    bt_arr[1].setBackgroundColor(Color.rgb(200, 0, 0));
+                    flipLogic(1);
+                    _commonDefine.tileFlg[1] = false;
                 } else {
-                    tile_2.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
-                    tile_2.setBackgroundColor(Color.rgb(0, 0, 255));
-                    _commonDefine.tileflg[1] = true;
+                    bt_arr[1].startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
+                    bt_arr[1].setBackgroundColor(Color.rgb(0, 0, 255));
+                    flipLogic(1);
+                    _commonDefine.tileFlg[1] = true;
                 }
                 break;
             case R.id.tile_3:
-                if (_commonDefine.tileflg[2]) {
-                    tile_3.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
-                    tile_3.setBackgroundColor(Color.rgb(200, 0, 0));
-                    _commonDefine.tileflg[2] = false;
+                if (_commonDefine.tileFlg[2]) {
+                    bt_arr[2].startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
+                    bt_arr[2].setBackgroundColor(Color.rgb(200, 0, 0));
+                    flipLogic(2);
+                    _commonDefine.tileFlg[2] = false;
                 } else {
-                    tile_3.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
-                    tile_3.setBackgroundColor(Color.rgb(0, 0, 255));
-                    _commonDefine.tileflg[2] = true;
+                    bt_arr[2].startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
+                    bt_arr[2].setBackgroundColor(Color.rgb(0, 0, 255));
+                    flipLogic(2);
+                    _commonDefine.tileFlg[2] = true;
                 }
                 break;
             case R.id.tile_4:
-                if (_commonDefine.tileflg[3]) {
-                    tile_4.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
-                    tile_4.setBackgroundColor(Color.rgb(200, 0, 0));
-                    _commonDefine.tileflg[3] = false;
+                if (_commonDefine.tileFlg[3]) {
+                    bt_arr[3].startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
+                    bt_arr[3].setBackgroundColor(Color.rgb(200, 0, 0));
+                    flipLogic(3);
+                    _commonDefine.tileFlg[3] = false;
                 } else {
-                    tile_4.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
-                    tile_4.setBackgroundColor(Color.rgb(0, 0, 255));
-                    _commonDefine.tileflg[3] = true;
+                    bt_arr[3].startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
+                    bt_arr[3].setBackgroundColor(Color.rgb(0, 0, 255));
+                    flipLogic(3);
+                    _commonDefine.tileFlg[3] = true;
                 }
                 break;
             case R.id.tile_5:
-                if (_commonDefine.tileflg[4]) {
-                    tile_5.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
-                    tile_5.setBackgroundColor(Color.rgb(200, 0, 0));
-                    _commonDefine.tileflg[4] = false;
+                if (_commonDefine.tileFlg[4]) {
+                    bt_arr[4].startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
+                    bt_arr[4].setBackgroundColor(Color.rgb(200, 0, 0));
+                    flipLogic(4);
+                    _commonDefine.tileFlg[4] = false;
                 } else {
-                    tile_5.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
-                    tile_5.setBackgroundColor(Color.rgb(0, 0, 255));
-                    _commonDefine.tileflg[4] = true;
+                    bt_arr[4].startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
+                    bt_arr[4].setBackgroundColor(Color.rgb(0, 0, 255));
+                    flipLogic(4);
+                    _commonDefine.tileFlg[4] = true;
                 }
                 break;
             case R.id.tile_6:
-                if (_commonDefine.tileflg[5]) {
-                    tile_6.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
-                    tile_6.setBackgroundColor(Color.rgb(200, 0, 0));
-                    _commonDefine.tileflg[5] = false;
+                if (_commonDefine.tileFlg[5]) {
+                    bt_arr[5].startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
+                    bt_arr[5].setBackgroundColor(Color.rgb(200, 0, 0));
+                    flipLogic(5);
+                    _commonDefine.tileFlg[5] = false;
                 } else {
-                    tile_6.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
-                    tile_6.setBackgroundColor(Color.rgb(0, 0, 255));
-                    _commonDefine.tileflg[5] = true;
+                    bt_arr[5].startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
+                    bt_arr[5].setBackgroundColor(Color.rgb(0, 0, 255));
+                    flipLogic(5);
+                    _commonDefine.tileFlg[5] = true;
                 }
                 break;
             case R.id.tile_7:
-                if (_commonDefine.tileflg[6]) {
-                    tile_7.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
-                    tile_7.setBackgroundColor(Color.rgb(200, 0, 0));
-                    _commonDefine.tileflg[6] = false;
+                if (_commonDefine.tileFlg[6]) {
+                    bt_arr[6].startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
+                    bt_arr[6].setBackgroundColor(Color.rgb(200, 0, 0));
+                    flipLogic(6);
+                    _commonDefine.tileFlg[6] = false;
                 } else {
-                    tile_7.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
-                    tile_7.setBackgroundColor(Color.rgb(0, 0, 255));
-                    _commonDefine.tileflg[6] = true;
+                    bt_arr[6].startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
+                    bt_arr[6].setBackgroundColor(Color.rgb(0, 0, 255));
+                    flipLogic(6);
+                    _commonDefine.tileFlg[6] = true;
                 }
                 break;
             case R.id.tile_8:
-                if (_commonDefine.tileflg[7]) {
-                    tile_8.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
-                    tile_8.setBackgroundColor(Color.rgb(200, 0, 0));
-                    _commonDefine.tileflg[7] = false;
+                if (_commonDefine.tileFlg[7]) {
+                    bt_arr[7].startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
+                    bt_arr[7].setBackgroundColor(Color.rgb(200, 0, 0));
+                    flipLogic(7);
+                    _commonDefine.tileFlg[7] = false;
                 } else {
-                    tile_8.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
-                    tile_8.setBackgroundColor(Color.rgb(0, 0, 255));
-                    _commonDefine.tileflg[7] = true;
+                    bt_arr[7].startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
+                    bt_arr[7].setBackgroundColor(Color.rgb(0, 0, 255));
+                    flipLogic(7);
+                    _commonDefine.tileFlg[7] = true;
                 }
                 break;
             case R.id.tile_9:
-                if (_commonDefine.tileflg[8]) {
-                    tile_9.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
-                    tile_9.setBackgroundColor(Color.rgb(200, 0, 0));
-                    _commonDefine.tileflg[8] = false;
+                if (_commonDefine.tileFlg[8]) {
+                    bt_arr[8].startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
+                    bt_arr[8].setBackgroundColor(Color.rgb(200, 0, 0));
+                    flipLogic(8);
+                    _commonDefine.tileFlg[8] = false;
                 } else {
-                    tile_9.startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
-                    tile_9.setBackgroundColor(Color.rgb(0, 0, 255));
-                    _commonDefine.tileflg[8] = true;
+                    bt_arr[8].startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
+                    bt_arr[8].setBackgroundColor(Color.rgb(0, 0, 255));
+                    flipLogic(8);
+                    _commonDefine.tileFlg[8] = true;
                 }
                 break;
 
@@ -199,6 +217,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 generateRandomArray();
                 set_bt.setText("Next Game");
         }
+
+        // Set Clear Condition
         if(compareAnswerArr()){
             clear_text.setVisibility(View.VISIBLE);
             _commonDefine.score++;
@@ -208,107 +228,120 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 startActivity(intent);
             }
         }
+        System.out.println(Arrays.toString(_commonDefine.tileFlg));
     }
 
+    /**
+     * Generate Binary Array Condition
+     * @implNote Set answer array.
+     */
     private void generateRandomArray(){
         Random r = new Random();
-//        int arr[][] = new int[3][3];
 
         for(int i = 0; i < 9; i++) {
-                _commonDefine.ans_tileflg[i] = convertBool(r.nextInt(2));
+                _commonDefine.ansTileFlg[i] = convertBool(r.nextInt(2));
         }
         clear_text.setVisibility(View.GONE);
         loadStatusArray();
     }
 
+    /**
+     * Load Status Answer Random Array to Answer Tile
+     * @implNote Load status to answer tile from random array(generateRandomArray)
+     */
     private void loadStatusArray(){
         for(int i = 0; i < 9; i++) {
             switch(i + 1) {
                 case 1:
-                    if (_commonDefine.ans_tileflg[0]) {
+                    if (_commonDefine.ansTileFlg[0]) {
                         ans_tile_1.setBackgroundColor(Color.rgb(200, 0, 0));
-                        _commonDefine.ans_tileflg[0] = false;
+                        _commonDefine.ansTileFlg[0] = false;
                     } else {
                         ans_tile_1.setBackgroundColor(Color.rgb(0, 0, 200));
-                        _commonDefine.ans_tileflg[0] = true;
+                        _commonDefine.ansTileFlg[0] = true;
                     }
                     break;
                 case 2:
-                    if (_commonDefine.ans_tileflg[1]) {
+                    if (_commonDefine.ansTileFlg[1]) {
                         ans_tile_2.setBackgroundColor(Color.rgb(200, 0, 0));
-                        _commonDefine.ans_tileflg[1] = false;
+                        _commonDefine.ansTileFlg[1] = false;
                     } else {
                         ans_tile_2.setBackgroundColor(Color.rgb(0, 0, 200));
-                        _commonDefine.ans_tileflg[1] = true;
+                        _commonDefine.ansTileFlg[1] = true;
                     }
                     break;
                 case 3:
-                    if (_commonDefine.ans_tileflg[2]) {
+                    if (_commonDefine.ansTileFlg[2]) {
                         ans_tile_3.setBackgroundColor(Color.rgb(200, 0, 0));
-                        _commonDefine.ans_tileflg[2] = false;
+                        _commonDefine.ansTileFlg[2] = false;
                     } else {
                         ans_tile_3.setBackgroundColor(Color.rgb(0, 0, 200));
-                        _commonDefine.ans_tileflg[2] = true;
+                        _commonDefine.ansTileFlg[2] = true;
                     }
                     break;
                 case 4:
-                    if (_commonDefine.ans_tileflg[3]) {
+                    if (_commonDefine.ansTileFlg[3]) {
                         ans_tile_4.setBackgroundColor(Color.rgb(200, 0, 0));
-                        _commonDefine.ans_tileflg[3] = false;
+                        _commonDefine.ansTileFlg[3] = false;
                     } else {
                         ans_tile_4.setBackgroundColor(Color.rgb(0, 0, 200));
-                        _commonDefine.ans_tileflg[3] = true;
+                        _commonDefine.ansTileFlg[3] = true;
                     }
                     break;
                 case 5:
-                    if (_commonDefine.ans_tileflg[4]) {
+                    if (_commonDefine.ansTileFlg[4]) {
                         ans_tile_5.setBackgroundColor(Color.rgb(200, 0, 0));
-                        _commonDefine.ans_tileflg[4] = false;
+                        _commonDefine.ansTileFlg[4] = false;
                     } else {
                         ans_tile_5.setBackgroundColor(Color.rgb(0, 0, 200));
-                        _commonDefine.ans_tileflg[4] = true;
+                        _commonDefine.ansTileFlg[4] = true;
                     }
                     break;
                 case 6:
-                    if (_commonDefine.ans_tileflg[5]) {
+                    if (_commonDefine.ansTileFlg[5]) {
                         ans_tile_6.setBackgroundColor(Color.rgb(200, 0, 0));
-                        _commonDefine.ans_tileflg[5] = false;
+                        _commonDefine.ansTileFlg[5] = false;
                     } else {
                         ans_tile_6.setBackgroundColor(Color.rgb(0, 0, 200));
-                        _commonDefine.ans_tileflg[5] = true;
+                        _commonDefine.ansTileFlg[5] = true;
                     }
                     break;
                 case 7:
-                    if (_commonDefine.ans_tileflg[6]) {
+                    if (_commonDefine.ansTileFlg[6]) {
                         ans_tile_7.setBackgroundColor(Color.rgb(200, 0, 0));
-                        _commonDefine.ans_tileflg[6] = false;
+                        _commonDefine.ansTileFlg[6] = false;
                     } else {
                         ans_tile_7.setBackgroundColor(Color.rgb(0, 0, 200));
-                        _commonDefine.ans_tileflg[6] = true;
+                        _commonDefine.ansTileFlg[6] = true;
                     }
                     break;
                 case 8:
-                    if (_commonDefine.ans_tileflg[7]) {
+                    if (_commonDefine.ansTileFlg[7]) {
                         ans_tile_8.setBackgroundColor(Color.rgb(200, 0, 0));
-                        _commonDefine.ans_tileflg[7] = false;
+                        _commonDefine.ansTileFlg[7] = false;
                     } else {
                         ans_tile_8.setBackgroundColor(Color.rgb(0, 0, 200));
-                        _commonDefine.ans_tileflg[7] = true;
+                        _commonDefine.ansTileFlg[7] = true;
                     }
                     break;
                 case 9:
-                    if (_commonDefine.ans_tileflg[8]) {
+                    if (_commonDefine.ansTileFlg[8]) {
                         ans_tile_9.setBackgroundColor(Color.rgb(200, 0, 0));
-                        _commonDefine.ans_tileflg[8] = false;
+                        _commonDefine.ansTileFlg[8] = false;
                     } else {
                         ans_tile_9.setBackgroundColor(Color.rgb(0, 0, 200));
-                        _commonDefine.ans_tileflg[8] = true;
+                        _commonDefine.ansTileFlg[8] = true;
                     }
                     break;
             }
         }
     }
 
+    /**
+     * Convert Array from Binary to Boolean
+     * @param binary 0 or 1
+     * @return true or false
+     */
     private boolean convertBool(int binary){
         if(binary == 0){
             return true;
@@ -317,12 +350,45 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
     }
 
+    /**
+     * Compare User Tile to Answer Tile
+     * @return true or false
+     */
     private boolean compareAnswerArr(){
         for(int i = 0; i < 9; i++){
-            if(_commonDefine.tileflg[i] != _commonDefine.ans_tileflg[i]){
+            if(_commonDefine.tileFlg[i] != _commonDefine.ansTileFlg[i]){
                 return false;
             }
         }
         return true;
+    }
+
+    /**
+     * Set to Tile Flip Logic
+     * @param num: user touch tile number
+     * @implNote Flip tile vertical and horizontal.
+     */
+    private void flipLogic(int num){
+        for(int i = 0; i < 4; i++) {
+            tileFlip(_commonDefine.flipLogicArr[num][i]);
+        }
+    }
+
+    /**
+     * Flip Tile Setting
+     * @param num: user touch tile number
+     * @implNote Tile animation and change flg.
+     */
+    private void tileFlip(int num){
+        System.out.printf("変更タイルは%d%n", num);
+        if (_commonDefine.tileFlg[num]) {
+            bt_arr[num].startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
+            bt_arr[num].setBackgroundColor(Color.rgb(200, 0, 0));
+            _commonDefine.tileFlg[num] = false;
+        } else {
+            bt_arr[num].startAnimation(AnimationUtils.loadAnimation(this, R.anim.btn_on_click));
+            bt_arr[num].setBackgroundColor(Color.rgb(0, 0, 255));
+            _commonDefine.tileFlg[num] = true;
+        }
     }
 }
