@@ -33,6 +33,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private TextView clear_text;
 
     private Button set_bt;
+    private Button top_bt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +70,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         // Find Set Game Button id
         set_bt = findViewById(R.id.set_button);
 
+        top_bt = findViewById(R.id.top_button);
+
         // FInd Clear Screen Text id
         clear_text = findViewById(R.id.clear_text);
 
@@ -84,6 +87,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         bt_arr[8].setOnClickListener(this);
 
         set_bt.setOnClickListener(this);
+
+        top_bt.setOnClickListener(this);
     }
 
     /**
@@ -216,6 +221,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
             case R.id.set_button:
                 generateRandomArray();
                 set_bt.setText("Next Game");
+                break;
+
+            case R.id.top_button:
+                Intent intent = new Intent(this, TopActivity.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         }
 
         // Set Clear Condition
@@ -369,8 +380,18 @@ public class MainActivity extends Activity implements View.OnClickListener {
      * @implNote Flip tile vertical and horizontal.
      */
     private void flipLogic(int num){
-        for(int i = 0; i < 4; i++) {
-            tileFlip(_commonDefine.flipLogicArr[num][i]);
+        if(num == 4){
+            for(int i = 0; i < 4; i++) {
+                tileFlip(_commonDefine.flipLogicArr[num][i]);
+            }
+        } else if (num == 0 || num == 2 || num == 6 || num == 8) {
+            for(int i = 0; i < 2; i++) {
+                tileFlip(_commonDefine.flipLogicArr[num][i]);
+            }
+        }else{
+            for(int i = 0; i < 3; i++) {
+                tileFlip(_commonDefine.flipLogicArr[num][i]);
+            }
         }
     }
 

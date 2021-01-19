@@ -37,5 +37,7 @@ public class TopActivity extends Activity implements View.OnClickListener {
         //ここに遷移するための処理を追加する
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 }
