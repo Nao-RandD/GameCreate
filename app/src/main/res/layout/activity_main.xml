@@ -25,17 +25,20 @@
             <Button
                 android:id="@+id/ans_tile_1"
                 android:layout_width="40dp"
-                android:layout_height="40dp" />
+                android:layout_height="40dp"
+                android:layout_margin="5dp"/>
 
             <Button
                 android:id="@+id/ans_tile_2"
                 android:layout_width="40dp"
-                android:layout_height="40dp" />
+                android:layout_height="40dp"
+                android:layout_margin="5dp"/>
 
             <Button
                 android:id="@+id/ans_tile_3"
                 android:layout_width="40dp"
-                android:layout_height="40dp" />
+                android:layout_height="40dp"
+                android:layout_margin="5dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -46,17 +49,20 @@
             <Button
                 android:id="@+id/ans_tile_4"
                 android:layout_width="40dp"
-                android:layout_height="40dp" />
+                android:layout_height="40dp"
+                android:layout_margin="5dp"/>
 
             <Button
                 android:id="@+id/ans_tile_5"
                 android:layout_width="40dp"
-                android:layout_height="40dp" />
+                android:layout_height="40dp"
+                android:layout_margin="5dp"/>
 
             <Button
                 android:id="@+id/ans_tile_6"
                 android:layout_width="40dp"
-                android:layout_height="40dp" />
+                android:layout_height="40dp"
+                android:layout_margin="5dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -67,17 +73,20 @@
             <Button
                 android:id="@+id/ans_tile_7"
                 android:layout_width="40dp"
-                android:layout_height="40dp" />
+                android:layout_height="40dp"
+                android:layout_margin="5dp"/>
 
             <Button
                 android:id="@+id/ans_tile_8"
                 android:layout_width="40dp"
-                android:layout_height="40dp" />
+                android:layout_height="40dp"
+                android:layout_margin="5dp"/>
 
             <Button
                 android:id="@+id/ans_tile_9"
                 android:layout_width="40dp"
-                android:layout_height="40dp" />
+                android:layout_height="40dp"
+                android:layout_margin="5dp"/>
         </LinearLayout>
 
     </LinearLayout>
@@ -102,7 +111,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_margin="5dp"
-                android:background="#0000FF"
+                android:background="@drawable/button_background_head"
                 android:text="@string/tile_name" />
 
             <Button
@@ -110,7 +119,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_margin="5dp"
-                android:background="#0000FF"
+                android:background="@drawable/button_background_head"
                 android:text="@string/tile_name" />
 
             <Button
@@ -118,7 +127,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_margin="5dp"
-                android:background="#0000FF"
+                android:background="@drawable/button_background_head"
                 android:text="@string/tile_name" />
         </LinearLayout>
 
@@ -132,7 +141,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_margin="5dp"
-                android:background="#0000FF"
+                android:background="@drawable/button_background_head"
                 android:text="@string/tile_name" />
 
             <Button
@@ -140,7 +149,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_margin="5dp"
-                android:background="#0000FF"
+                android:background="@drawable/button_background_head"
                 android:text="@string/tile_name" />
 
             <Button
@@ -148,7 +157,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_margin="5dp"
-                android:background="#0000FF"
+                android:background="@drawable/button_background_head"
                 android:text="@string/tile_name" />
         </LinearLayout>
 
@@ -162,7 +171,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_margin="5dp"
-                android:background="#0000FF"
+                android:background="@drawable/button_background_head"
                 android:text="@string/tile_name" />
 
             <Button
@@ -170,7 +179,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_margin="5dp"
-                android:background="#0000FF"
+                android:background="@drawable/button_background_head"
                 android:text="@string/tile_name" />
 
             <Button
@@ -178,7 +187,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_margin="5dp"
-                android:background="#0000FF"
+                android:background="@drawable/button_background_head"
                 android:text="@string/tile_name" />
         </LinearLayout>
 
