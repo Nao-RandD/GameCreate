@@ -52,6 +52,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("debug", "onCreate");
 
         setContentView(R.layout.activity_main);
 
@@ -113,7 +114,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         // Generate SoundPool instance for tap button sound
         soundPool = new SoundPool.Builder()
                 .setAudioAttributes(audioAttributes)
-                // ストリーム数に応じて
                 .setMaxStreams(2)
                 .build();
 
@@ -137,6 +137,32 @@ public class MainActivity extends Activity implements View.OnClickListener {
         mediaPlayer.setLooping(true);
         mediaPlayer.setVolume(ringVol,ringVol);
         mediaPlayer.start();
+
+        // Set Answer tile
+        generateRandomArray();
+        set_bt.setText("Next Game");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("debug", "onStart");
+
+        if(!(mediaPlayer.isPlaying())){
+            mediaPlayer.stop();
+            mediaPlayer.release();
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("debug", "onStop");
+
+        if(mediaPlayer.isPlaying()){
+            mediaPlayer.stop();
+            mediaPlayer.release();
+        }
     }
 
     /**
@@ -329,18 +355,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
             }
         }
         System.out.println(Arrays.toString(_commonDefine.tileFlg));
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-        mediaPlayer.stop();
-        mediaPlayer.release();
-//        if(mediaPlayer.isPlaying()){
-//            mediaPlayer.stop();
-//            mediaPlayer.release();
-//        }
     }
 
     /**
