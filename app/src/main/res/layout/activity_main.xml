@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -26,13 +25,13 @@
                 android:id="@+id/ans_tile_1"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_margin="5dp"/>
+                android:layout_margin="5dp" />
 
             <Button
                 android:id="@+id/ans_tile_2"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_margin="5dp"/>
+                android:layout_margin="5dp" />
 
             <Button
                 android:id="@+id/ans_tile_3"
