@@ -23,7 +23,7 @@ public class TopActivity extends Activity implements View.OnClickListener {
         start_button.setOnClickListener(this);
 
         mConstraintLayout = findViewById(R.id.mConstraintLayout);
-        //背景アニメーションを設定
+        //Set Background animation
         AnimationUtil.animateConstraintLayout(mConstraintLayout,
             CommonDefine.BACKGROUND_ENTER_ANIMATION_DURATION,CommonDefine.BACKGROUND_EXIT_ANIMATION_DURATION);
 
@@ -32,9 +32,8 @@ public class TopActivity extends Activity implements View.OnClickListener {
 
     }
 
-    //ボタンが押された時の処理
+    // Tap Start Button Action
     public void onClick(View view){
-        //ここに遷移するための処理を追加する
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
