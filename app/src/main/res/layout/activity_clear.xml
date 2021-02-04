@@ -16,7 +16,7 @@
         android:id="@+id/back_to_title_bt"
         android:layout_width="125dp"
         android:layout_height="72dp"
-        android:background="#FFEB3B"
+        android:background="@drawable/gradation_middle"
         android:text="Back To Title"
         android:textColor="#0C0C0C"
         android:textSize="20dp"
